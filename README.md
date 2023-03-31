@@ -1,18 +1,18 @@
 # Docker Multiple Services POC 
 
 1. This repo contains docker-compose.yml file to spin up square-service,cube-service and factorial service at once using docker-compose.
-2. REDME.md file gives information on building and publishing docker image of each service to docker-hub repository.
+2. README.md file gives information on building and publishing docker image of each service to docker-hub repository.
 
 ## Github repository details
 
 ### square-service
--https://github.com/sivakumargampala/square-service
+- https://github.com/sivakumargampala/square-service
 
 ### cube-service
--https://github.com/sivakumargampala/cube-service
+- https://github.com/sivakumargampala/cube-service
 
 ### factorial-service
--https://github.com/sivakumargampala/factorial-service
+- https://github.com/sivakumargampala/factorial-service
 
 ## Docker image creation steps
 
@@ -23,7 +23,7 @@
 
 1. Each application has its own github repo.
 - Example : square-service
--https://github.com/sivakumargampala/square-service.git
+- https://github.com/sivakumargampala/square-service.git
 2. Open new instance in docker playground.
 3. Clone github repo by executing below command . Once clone is succesful you will be able to see the square-service directory.
 - git clone https://github.com/sivakumargampala/cube-service.git
@@ -35,7 +35,7 @@
 - docker build -t sivakumargampala/square-service:v1
 8. To spin up the sqaure-service container execute below command.Once the container is up and running try hitting the square service endpoint.
 - docker run -d -p 8091:8091 sivakumargampala/cube-service:v1
--http://<playground-host-name>:8091/square/4
+- http://<playground-host-name>:8091/square/4
 9. To push the created image to docker hub repository execute the below command after you login into your docker account using docker login.
 - docker push sivakumargampala/factorial-service:v1
 
