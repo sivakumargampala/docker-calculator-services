@@ -3,9 +3,7 @@ services:
 
   square-service:
     image: sivakumargampala/square-service:v1
-    build:
-      context: square-service
-      dockerfile: Dockerfile        
+    container_name: square-service       
     ports:
       - "8091:8091"
     restart: always    
@@ -14,9 +12,7 @@ services:
 
   cube-service:
     image: sivakumargampala/cube-service:v1
-    build:
-      context: cube-service
-      dockerfile: Dockerfile        
+    container_name: cube-service       
     ports:
       - "8092:8092"
     restart: always    
@@ -25,16 +21,13 @@ services:
 
   factorial-service:
     image: sivakumargampala/factorial-service:v1
-    build:
-      context: factorial-service
-      dockerfile: Dockerfile        
+    container_name: factorial-service      
     ports:
       - "8093:8093"
     restart: always    
     networks:
       - calculator-compose-network
-  
-  
+
 # Networks to be created to facilitate communication between containers
 networks:
   calculator-compose-network:
