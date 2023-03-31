@@ -34,7 +34,7 @@
 - docker build -t sivakumargampala/square-service:v1
 8. To spin up the sqaure-service container execute below command.Once the container is up and running try hitting the square service endpoint.
 - docker run -d -p 8091:8091 sivakumargampala/cube-service:v1
-- http://<playground-host-name>:8091/square/4
+- http://playground-host-name:8091/square/4
 9. To push the created image to docker hub repository execute the below command after you login into your docker account using docker login.
 - docker push sivakumargampala/factorial-service:v1
 
