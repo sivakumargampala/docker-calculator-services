@@ -1,4 +1,4 @@
-# Docker Multiple Services POC 
+# Calculator Services Containerization POC 
 
 1. This repo contains docker-compose.yml file to spin up square-service,cube-service and factorial service at once using docker-compose.
 2. README.md file gives information on building and publishing docker image of each service to docker-hub repository.
@@ -21,8 +21,7 @@
 
 ### Square Service App
 
-1. Each application has its own github repo.
-- Example : square-service
+1. Each application has its own github repo.For example square-service url is given below.
 - https://github.com/sivakumargampala/square-service.git
 2. Open new instance in docker playground.
 3. Clone github repo by executing below command . Once clone is succesful you will be able to see the square-service directory.
