@@ -43,12 +43,6 @@ services:
     restart: always    
     networks:
       - calculator-compose-network      
-  curl-service:
-    image: curlimages/curl
-    command: sleep 3600
-    networks:
-      - calculator-compose-network
-   
-# Networks to be created to facilitate communication between containers
+
 networks:
   calculator-compose-network:
