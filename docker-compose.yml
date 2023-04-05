@@ -1,7 +1,8 @@
 version: '2.6.1'
 services:
   web-client:
-    image: sivakumargampala/calculator-web-client:v1
+    #image: sivakumargampala/calculator-web-client:v1
+    build: ./web-client
     container_name: web-client
     ports:
       - "80:80"
@@ -15,6 +16,7 @@ services:
     
   square-service:
     image: sivakumargampala/square-service:v1
+    #build: ./square-service
     container_name: square-service       
     ports:
       - "8091:8091"
@@ -24,6 +26,7 @@ services:
 
   cube-service:
     image: sivakumargampala/cube-service:v1
+    #build: ./cube-service
     container_name: cube-service       
     ports:
       - "8092:8092"
@@ -33,13 +36,19 @@ services:
 
   factorial-service:
     image: sivakumargampala/factorial-service:v1
+    #build: ./factorial-service
     container_name: factorial-service      
     ports:
       - "8093:8093"
     restart: always    
     networks:
-      - calculator-compose-network
-
+      - calculator-compose-network      
+  curl-service:
+    image: curlimages/curl
+    command: sleep 3600
+    networks:
+      - calculator-compose-network
+   
 # Networks to be created to facilitate communication between containers
 networks:
   calculator-compose-network:
