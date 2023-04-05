@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        .buttonClassStyle {
+            display: block;
+            margin-top: 5px;
+            border-color: white !important;
+        }
+
+        .resultStyle {
+            margin-top: 21px;
+        }
+
+        .metrics {
+            margin-top: 50px;
+        }
+
+        .bodyStyle {
+            margin: 10px;
+            background: aliceblue;
+        }
+
+        .mainDisplayCOntent {
+            padding: 40px;
+        }
+
+        .inputBoxContent {
+            padding: 10px;
+            margin-left: 110px;
+        }
+    </style>
+</head>
+
+<body class="bodyStyle">
+    <script>
+        function myFunction(val) {
+            let inputVal = document.getElementById("inputbox").value
+			let hostname = document.getElementById("hostbox").value
+            if(!inputVal){
+                inputVal=0
+            }
+            let result = 0;
+            let appendValue=""
+            let url = "http://"+ hostname + ":"
+            switch (val.toLowerCase()) {
+                case "square":
+                    appendValue = "Square of "+inputVal +" is "
+                    url = url+"/square/"+inputVal
+                    break;
+                case "cube":
+                appendValue = "Cube of "+inputVal +" is "
+                    url = url+"/cube/"+inputVal
+                    break;
+                case "factorial":
+                    appendValue = "Factorial of "+inputVal +" is "
+                    url = url+"/factorial/"+inputVal
+                    break;
+                default:
+                    result = ""
+                    break;
+            }
+            
+            fetch(url)
+                .then(x => x.text())
+                .then(y => {
+                    document.getElementById("showResult").innerHTML = appendValue+y
+                }); 
+        }
+    </script>
+	 <div class="inputBoxContent">
+        <input type="string" id="hostbox" name="hostbox" placeholder="Enter Hostname">
+    </div>
+    <div class="inputBoxContent">
+        <input type="number" id="inputbox" name="inputbox" placeholder="Enter number">
+    </div>
+
+    <div class="mainDisplayCOntent">
+        <div class="row">
+            <div class="col-sm-3">
+                <button onclick="myFunction('square')" type="button"
+                    class="btn btn-primary buttonClassStyle">Square</button>
+                <button onclick="myFunction('cube')" type="button"
+                    class="btn btn-primary buttonClassStyle">Cube</button>
+                <button onclick="myFunction('fibonacci')" type="button"
+                    class="btn btn-primary buttonClassStyle">Factorial </button>
+                <button onclick="myFunction('metrics')" type="button"
+                    class="btn btn-primary buttonClassStyle">Metrics</button>
+            </div>
+            <div class="col-sm-9 resultStyle">
+                <div class="result">
+                    <label id="showResult"></label>
+                </div>
+                <!-- <div class="metrics">
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <label> Performance Metrics</label>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-4">
+                            Square Function
+                        </div>
+                        <div class="col-sm-2">
+                            0.1
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
